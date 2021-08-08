@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Abp.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using ObligatorioDA2.Application.WeatherForecasts;
 using ObligatorioDA2.Application.WeatherForecasts.Dtos;
 
