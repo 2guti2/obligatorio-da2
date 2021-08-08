@@ -10,12 +10,12 @@ namespace ObligatorioDA2.UnitTests.Domain
         private static readonly string[] Summaries = {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-        
+
         public WeatherForecastManagerTests()
         {
             _weatherForecastManager = new WeatherForecastManager();
         }
-        
+
         [Fact]
         public void Build_works_as_expected()
         {

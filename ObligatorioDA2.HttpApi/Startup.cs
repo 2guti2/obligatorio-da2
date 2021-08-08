@@ -35,7 +35,7 @@ namespace ObligatorioDA2.HttpApi
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UseAbp(options => { options.UseAbpRequestLocalization = false; });
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

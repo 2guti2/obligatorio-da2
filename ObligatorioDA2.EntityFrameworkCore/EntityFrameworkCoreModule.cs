@@ -9,13 +9,13 @@ using ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore;
 namespace ObligatorioDA2.EntityFrameworkCore
 {
     [DependsOn(
-        typeof(DomainModule), 
+        typeof(DomainModule),
         typeof(AbpEntityFrameworkCoreModule))]
     public class EntityFrameworkCoreModule : AbpModule
     {
         /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */
         public bool SkipDbContextRegistration { get; set; }
-        
+
         public override void PreInitialize()
         {
             if (!SkipDbContextRegistration)
@@ -36,7 +36,7 @@ namespace ObligatorioDA2.EntityFrameworkCore
                 });
             }
         }
-        
+
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(typeof(EntityFrameworkCoreModule).GetAssembly());

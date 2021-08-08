@@ -8,6 +8,6 @@ namespace ObligatorioDA2.IntegrationTests.Factories
         {
             IWeatherForecastManager weatherForecastManager = new WeatherForecastManager();
             return weatherForecastManager.Build();
-        } 
+        }
     }
 }

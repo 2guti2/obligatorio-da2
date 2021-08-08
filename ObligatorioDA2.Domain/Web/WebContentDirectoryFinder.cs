@@ -25,7 +25,7 @@ namespace ObligatorioDA2.Domain
 
                 directoryInfo = directoryInfo.Parent;
             }
-            
+
 
             var webHostFolder = Path.Combine(directoryInfo.FullName, "ObligatorioDA2.HttpApi");
             if (Directory.Exists(webHostFolder))

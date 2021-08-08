@@ -7,7 +7,7 @@ namespace ObligatorioDA2.Domain.WeatherForecasts
         private static readonly string[] Summaries = {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
-        
+
         public WeatherForecast Build()
         {
             var rng = new Random();

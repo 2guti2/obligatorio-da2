@@ -1,3 +1,4 @@
+using System.Reflection;
 using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
@@ -12,7 +13,7 @@ namespace ObligatorioDA2.Application
     {
         public override void Initialize()
         {
-            var thisAssembly = typeof(ApplicationModule).GetAssembly();
+            Assembly thisAssembly = typeof(ApplicationModule).GetAssembly();
 
             IocManager.RegisterAssemblyByConvention(thisAssembly);
 

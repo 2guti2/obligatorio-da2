@@ -15,7 +15,7 @@ using ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore;
 namespace ObligatorioDA2.IntegrationTests
 {
     [DependsOn(
-        typeof(AbpTestBaseModule), 
+        typeof(AbpTestBaseModule),
         typeof(ApplicationModule),
         typeof(DomainModule),
         typeof(EntityFrameworkCoreModule))]
@@ -25,19 +25,19 @@ namespace ObligatorioDA2.IntegrationTests
         {
             abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
         }
-        
+
         public override void PreInitialize()
         {
             Configuration.UnitOfWork.Timeout = TimeSpan.FromMinutes(30);
             Configuration.UnitOfWork.IsTransactional = false;
         }
-        
+
         public override void Initialize()
         {
             RegisterServiceCollections();
             RegisterFakeService<Context>();
         }
-        
+
         private void RegisterFakeService<TService>() where TService : class
         {
             IocManager.IocContainer.Register(
@@ -46,11 +46,11 @@ namespace ObligatorioDA2.IntegrationTests
                     .LifestyleSingleton()
             );
         }
-        
+
         private void RegisterServiceCollections()
         {
             IIocManager iocManager = IocManager;
-            
+
             var services = new ServiceCollection();
 
             services.AddEntityFrameworkInMemoryDatabase();
