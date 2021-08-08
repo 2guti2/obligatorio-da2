@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Domain.Entities;
 
-namespace ObligatorioDA2.Domain
+namespace ObligatorioDA2.Domain.WeatherForecasts
 {
     public class WeatherForecast : Entity
     {

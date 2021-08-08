@@ -2,8 +2,8 @@
 using Abp.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using ObligatorioDA2.Application.WeatherForecast;
-using ObligatorioDA2.Domain;
+using ObligatorioDA2.Application.WeatherForecasts;
+using ObligatorioDA2.Domain.WeatherForecasts;
 
 namespace ObligatorioDA2.HttpApi.Controllers
 {

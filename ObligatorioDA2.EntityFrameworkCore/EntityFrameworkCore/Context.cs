@@ -1,6 +1,6 @@
 using Abp.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ObligatorioDA2.Domain;
+using ObligatorioDA2.Domain.WeatherForecasts;
 
 namespace ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore
 {
