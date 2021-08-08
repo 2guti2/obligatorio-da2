@@ -15,7 +15,8 @@ namespace ObligatorioDA2.Domain.WeatherForecasts
             {
                 Date = DateTime.Now,
                 TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
+                Summary = Summaries[rng.Next(Summaries.Length)],
+                HiddenField = "this is hidden"
             };
         }
     }
