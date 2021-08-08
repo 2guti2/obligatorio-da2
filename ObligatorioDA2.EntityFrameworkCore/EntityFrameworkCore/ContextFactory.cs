@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using ObligatorioDA2.Domain;
+using ObligatorioDA2.Domain.Web;
 
 namespace ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore
 {

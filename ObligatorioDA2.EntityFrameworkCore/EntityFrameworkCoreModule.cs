@@ -4,6 +4,7 @@ using Abp.Modules;
 using Abp.Reflection.Extensions;
 using Microsoft.Extensions.Configuration;
 using ObligatorioDA2.Domain;
+using ObligatorioDA2.Domain.Web;
 using ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore;
 
 namespace ObligatorioDA2.EntityFrameworkCore

@@ -3,7 +3,7 @@ using System.IO;
 using System.Linq;
 using Abp.Reflection.Extensions;
 
-namespace ObligatorioDA2.Domain
+namespace ObligatorioDA2.Domain.Web
 {
     public static class WebContentDirectoryFinder
     {

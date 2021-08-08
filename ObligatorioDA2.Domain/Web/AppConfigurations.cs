@@ -1,10 +1,9 @@
 using System.Collections.Concurrent;
 using System.IO;
-using Microsoft.Extensions.Configuration;
 using Abp.Extensions;
-using Abp.Reflection.Extensions;
+using Microsoft.Extensions.Configuration;
 
-namespace ObligatorioDA2.Domain
+namespace ObligatorioDA2.Domain.Web
 {
     public static class AppConfigurations
     {
