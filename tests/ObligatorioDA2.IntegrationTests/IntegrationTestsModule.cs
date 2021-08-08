@@ -1,11 +1,11 @@
 using System;
-using Abp.AutoMapper;
 using Abp.Dependency;
 using Abp.Modules;
-using Abp.Net.Mail;
 using Abp.TestBase;
-using Abp.Zero.EntityFrameworkCore;
 using Castle.MicroKernel.Registration;
+using Castle.Windsor.MsDependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using NSubstitute;
 using ObligatorioDA2.Application;
 using ObligatorioDA2.Domain;
@@ -34,7 +34,7 @@ namespace ObligatorioDA2.IntegrationTests
         
         public override void Initialize()
         {
-            ServiceCollectionRegistrar.Register(IocManager);
+            RegisterServiceCollections();
             RegisterFakeService<Context>();
         }
         
@@ -43,6 +43,27 @@ namespace ObligatorioDA2.IntegrationTests
             IocManager.IocContainer.Register(
                 Component.For<TService>()
                     .UsingFactoryMethod(() => Substitute.For<TService>())
+                    .LifestyleSingleton()
+            );
+        }
+        
+        private void RegisterServiceCollections()
+        {
+            IIocManager iocManager = IocManager;
+            
+            var services = new ServiceCollection();
+
+            services.AddEntityFrameworkInMemoryDatabase();
+
+            var serviceProvider = WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
+
+            var builder = new DbContextOptionsBuilder<Context>();
+            builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).UseInternalServiceProvider(serviceProvider);
+
+            iocManager.IocContainer.Register(
+                Component
+                    .For<DbContextOptions<Context>>()
+                    .Instance(builder.Options)
                     .LifestyleSingleton()
             );
         }
