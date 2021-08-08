@@ -24,7 +24,7 @@ namespace ObligatorioDA2.HttpApi.Controllers
         {
             return _weatherForecastAppService.ReadWeatherForecasts();
         }
-        
+
         /// <summary>
         /// Creates a WeatherForecast.
         /// </summary>

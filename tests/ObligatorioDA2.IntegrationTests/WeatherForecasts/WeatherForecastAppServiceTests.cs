@@ -45,7 +45,7 @@ namespace ObligatorioDA2.IntegrationTests.WeatherForecasts
             UsingDbContext(context => count = context.WeatherForecasts.Count());
 
             _weatherForecastAppService.CreateWeatherForecast(new WeatherForecastInputDto
-                {HiddenField = "some hidden prop", TemperatureC = 23});
+            { HiddenField = "some hidden prop", TemperatureC = 23 });
 
             UsingDbContext(context => { Assert.Equal(count + 1, context.WeatherForecasts.Count()); });
         }
