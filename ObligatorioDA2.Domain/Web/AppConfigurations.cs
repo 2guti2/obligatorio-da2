@@ -25,7 +25,7 @@ namespace ObligatorioDA2.Domain.Web
 
         private static IConfigurationRoot BuildConfiguration(string path, string environmentName = null)
         {
-            var builder = JsonConfigurationExtensions.AddJsonFile(new ConfigurationBuilder(), Path.Join(path, "appsettings.json"));
+            IConfigurationBuilder builder = new ConfigurationBuilder().AddJsonFile(Path.Join(path, "appsettings.json"));
 
             if (!environmentName.IsNullOrWhiteSpace())
             {
