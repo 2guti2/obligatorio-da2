@@ -1,2 +1,5 @@
 - find a better way to get config
+- include FluentValidation?
+
+https://aspnetboilerplate.com/Pages/Documents/NLayer-Architecture
 
