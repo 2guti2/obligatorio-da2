@@ -31,7 +31,10 @@ namespace ObligatorioDA2.Application.WeatherForecasts
             WeatherForecast forecast = _weatherForecastManager.Build();
             _weatherForecastRepository.Insert(forecast);
             
-            // Insert into db and load forecast Id into instance
+            // Insert into db and load forecast Id into instance.
+            // This is necessary because Abp handles a "Unit of Work" by app service method.
+            // That means that record is inserted after the method ends (after instance is already mapped).
+            // This results in a dto with Id == 0
             CurrentUnitOfWork.SaveChanges();
 
             return ObjectMapper.Map<WeatherForecastOutputDto>(forecast);
