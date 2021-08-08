@@ -13,20 +13,28 @@ namespace ObligatorioDA2.EntityFrameworkCore
         typeof(AbpEntityFrameworkCoreModule))]
     public class EntityFrameworkCoreModule : AbpModule
     {
+        /* Used it tests to skip dbcontext registration, in order to use in-memory database of EF Core */
+        public bool SkipDbContextRegistration { get; set; }
+        
         public override void PreInitialize()
         {
-            Configuration.Modules.AbpEfCore().AddDbContext<Context>(options =>
+            if (!SkipDbContextRegistration)
             {
-                if (options.ExistingConnection != null)
+                Configuration.Modules.AbpEfCore().AddDbContext<Context>(options =>
                 {
-                    ContextConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);
-                }
-                else
-                {
-                    var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
-                    ContextConfigurer.Configure(options.DbContextOptions, configuration.GetConnectionString("Default"));
-                }
-            });
+                    if (options.ExistingConnection != null)
+                    {
+                        ContextConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);
+                    }
+                    else
+                    {
+                        var configuration =
+                            AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
+                        ContextConfigurer.Configure(options.DbContextOptions,
+                            configuration.GetConnectionString("Default"));
+                    }
+                });
+            }
         }
         
         public override void Initialize()

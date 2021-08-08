@@ -1,0 +1,9 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=2c2e95ee_002Db383_002D46dd_002Da297_002Df7f8c5bd98db/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="Build_works_as_expected" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;Project Location="/Users/mgutierrez/Develop/obligatorio-da2" Presentation="&amp;lt;tests&amp;gt;" /&gt;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=7a4a635c_002Dcafc_002D4778_002Db2da_002D01f9b44fa18e/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="Read_should_return_all_entities" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+  &lt;TestAncestor&gt;
+    &lt;TestId&gt;xUnit::02E85235-8BD4-4264-A1A8-616BA510BD20::net5.0::ObligatorioDA2.IntegrationTests.WeatherForecasts.WeatherForecastAppServiceTests.Read_should_return_all_entities&lt;/TestId&gt;
+  &lt;/TestAncestor&gt;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
