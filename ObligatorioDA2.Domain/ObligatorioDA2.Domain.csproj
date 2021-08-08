@@ -5,7 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Volo.Abp" Version="4.4.0" />
+    <PackageReference Include="Abp" Version="6.4.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="WeatherForecast" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\5.0.7\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Configuration.Json, Version=5.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+      <HintPath>..\..\..\.dotnet\shared\Microsoft.AspNetCore.App\5.0.7\Microsoft.Extensions.Configuration.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

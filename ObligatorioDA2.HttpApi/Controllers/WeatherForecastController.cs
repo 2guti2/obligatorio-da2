@@ -26,7 +26,13 @@ namespace ObligatorioDA2.HttpApi.Controllers
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
-            return _weatherForecastAppService.GetWeatherForecasts();
+            return _weatherForecastAppService.ReadWeatherForecasts();
+        }
+
+        [HttpPost]
+        public void Post()
+        {
+            _weatherForecastAppService.CreateWeatherForecast();
         }
     }
 }

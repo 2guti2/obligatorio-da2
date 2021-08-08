@@ -5,6 +5,8 @@ namespace ObligatorioDA2.Application.WeatherForecast
 {
     public interface IWeatherForecastAppService : IApplicationService
     {
-        List<Domain.WeatherForecast> GetWeatherForecasts();
+        List<Domain.WeatherForecast> ReadWeatherForecasts();
+
+        void CreateWeatherForecast();
     }
 }
