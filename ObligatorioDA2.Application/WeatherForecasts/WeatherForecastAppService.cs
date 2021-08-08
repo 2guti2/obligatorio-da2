@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Abp.Domain.Repositories;
+using ObligatorioDA2.Application.WeatherForecasts.Dtos;
 using ObligatorioDA2.Domain.WeatherForecasts;
 
 namespace ObligatorioDA2.Application.WeatherForecasts
@@ -19,15 +20,21 @@ namespace ObligatorioDA2.Application.WeatherForecasts
             _weatherForecastManager = weatherForecastManager;
         }
 
-        public List<WeatherForecast> ReadWeatherForecasts()
+        public List<WeatherForecastOutputDto> ReadWeatherForecasts()
         {
-            return _weatherForecastRepository.GetAll().ToList();
+            var forecasts = _weatherForecastRepository.GetAll().ToList();
+            return ObjectMapper.Map<List<WeatherForecastOutputDto>>(forecasts);
         }
 
-        public void CreateWeatherForecast()
+        public WeatherForecastOutputDto CreateWeatherForecast()
         {
             WeatherForecast forecast = _weatherForecastManager.Build();
             _weatherForecastRepository.Insert(forecast);
+            
+            // Insert into db and load forecast Id into instance
+            CurrentUnitOfWork.SaveChanges();
+
+            return ObjectMapper.Map<WeatherForecastOutputDto>(forecast);
         }
     }
 }

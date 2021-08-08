@@ -3,7 +3,7 @@ using Abp.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ObligatorioDA2.Application.WeatherForecasts;
-using ObligatorioDA2.Domain.WeatherForecasts;
+using ObligatorioDA2.Application.WeatherForecasts.Dtos;
 
 namespace ObligatorioDA2.HttpApi.Controllers
 {
@@ -24,15 +24,15 @@ namespace ObligatorioDA2.HttpApi.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecastOutputDto> Get()
         {
             return _weatherForecastAppService.ReadWeatherForecasts();
         }
 
         [HttpPost]
-        public void Post()
+        public WeatherForecastOutputDto Post()
         {
-            _weatherForecastAppService.CreateWeatherForecast();
+            return _weatherForecastAppService.CreateWeatherForecast();
         }
     }
 }

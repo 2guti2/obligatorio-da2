@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 using Abp.Application.Services;
-using ObligatorioDA2.Domain.WeatherForecasts;
+using ObligatorioDA2.Application.WeatherForecasts.Dtos;
 
 namespace ObligatorioDA2.Application.WeatherForecasts
 {
     public interface IWeatherForecastAppService : IApplicationService
     {
-        List<WeatherForecast> ReadWeatherForecasts();
+        List<WeatherForecastOutputDto> ReadWeatherForecasts();
 
-        void CreateWeatherForecast();
+        WeatherForecastOutputDto CreateWeatherForecast();
     }
 }
