@@ -1,2 +1,2 @@
-- see a better way to get config
+- find a better way to get config
 
