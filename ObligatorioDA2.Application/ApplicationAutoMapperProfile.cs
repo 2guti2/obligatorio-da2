@@ -13,6 +13,7 @@ namespace ObligatorioDA2.Application
              * into multiple profile classes for a better organization. */
 
             CreateMap<WeatherForecast, WeatherForecastOutputDto>();
+            CreateMap<WeatherForecastInputDto, WeatherForecast>();
         }
     }
 }

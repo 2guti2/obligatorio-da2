@@ -44,12 +44,10 @@ namespace ObligatorioDA2.IntegrationTests.WeatherForecasts
             var count = 0;
             UsingDbContext(context => count = context.WeatherForecasts.Count());
 
-            _weatherForecastAppService.CreateWeatherForecast();
+            _weatherForecastAppService.CreateWeatherForecast(new WeatherForecastInputDto
+                {HiddenField = "some hidden prop", TemperatureC = 23});
 
-            UsingDbContext(context =>
-            {
-                Assert.Equal(count + 1, context.WeatherForecasts.Count());
-            });
+            UsingDbContext(context => { Assert.Equal(count + 1, context.WeatherForecasts.Count()); });
         }
     }
 }

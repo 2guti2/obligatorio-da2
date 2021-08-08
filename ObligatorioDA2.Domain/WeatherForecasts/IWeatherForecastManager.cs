@@ -4,6 +4,6 @@ namespace ObligatorioDA2.Domain.WeatherForecasts
 {
     public interface IWeatherForecastManager : IDomainService
     {
-        WeatherForecast Build();
+        void LoadCalculatedProps(WeatherForecast forecast);
     }
 }

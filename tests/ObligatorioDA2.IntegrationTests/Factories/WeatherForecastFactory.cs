@@ -7,7 +7,9 @@ namespace ObligatorioDA2.IntegrationTests.Factories
         public static WeatherForecast New()
         {
             IWeatherForecastManager weatherForecastManager = new WeatherForecastManager();
-            return weatherForecastManager.Build();
+            var forecast = new WeatherForecast();
+            weatherForecastManager.LoadCalculatedProps(forecast);
+            return forecast;
         }
     }
 }

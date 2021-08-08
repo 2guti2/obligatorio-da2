@@ -24,11 +24,24 @@ namespace ObligatorioDA2.HttpApi.Controllers
         {
             return _weatherForecastAppService.ReadWeatherForecasts();
         }
-
+        
+        /// <summary>
+        /// Creates a WeatherForecast.
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /WeatherForecast
+        ///     {
+        ///        "hiddenField": "some hidden info",
+        ///        "temperatureC": 31
+        ///     }
+        ///
+        /// </remarks>
         [HttpPost]
-        public WeatherForecastOutputDto Post()
+        public WeatherForecastOutputDto Post(WeatherForecastInputDto input)
         {
-            return _weatherForecastAppService.CreateWeatherForecast();
+            return _weatherForecastAppService.CreateWeatherForecast(input);
         }
     }
 }

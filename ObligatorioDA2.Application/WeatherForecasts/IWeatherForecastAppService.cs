@@ -8,6 +8,6 @@ namespace ObligatorioDA2.Application.WeatherForecasts
     {
         List<WeatherForecastOutputDto> ReadWeatherForecasts();
 
-        WeatherForecastOutputDto CreateWeatherForecast();
+        WeatherForecastOutputDto CreateWeatherForecast(WeatherForecastInputDto input);
     }
 }

@@ -17,9 +17,10 @@ namespace ObligatorioDA2.UnitTests.Domain
         }
 
         [Fact]
-        public void Build_works_as_expected()
+        public void LoadCalculatedProps_works_as_expected()
         {
-            WeatherForecast forecast = _weatherForecastManager.Build();
+            var forecast = new WeatherForecast();
+            _weatherForecastManager.LoadCalculatedProps(forecast);
             var isAny = Summaries.Any(s => s.Equals(forecast.Summary));
             Assert.True(isAny);
         }

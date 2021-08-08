@@ -26,9 +26,10 @@ namespace ObligatorioDA2.Application.WeatherForecasts
             return ObjectMapper.Map<List<WeatherForecastOutputDto>>(forecasts);
         }
 
-        public WeatherForecastOutputDto CreateWeatherForecast()
+        public WeatherForecastOutputDto CreateWeatherForecast(WeatherForecastInputDto input)
         {
-            WeatherForecast forecast = _weatherForecastManager.Build();
+            var forecast = ObjectMapper.Map<WeatherForecast>(input);
+            _weatherForecastManager.LoadCalculatedProps(forecast);
             _weatherForecastRepository.Insert(forecast);
 
             // Insert into db and load forecast Id into instance.
