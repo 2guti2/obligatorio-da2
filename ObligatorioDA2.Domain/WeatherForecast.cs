@@ -1,6 +1,6 @@
-using System;
+﻿using System;
 
-namespace ObligatorioDA2.HttpApi
+namespace ObligatorioDA2.Domain
 {
     public class WeatherForecast
     {

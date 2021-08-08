@@ -8,4 +8,8 @@
     <ProjectReference Include="..\ObligatorioDA2.Domain\ObligatorioDA2.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp" Version="4.4.0" />
+  </ItemGroup>
+
 </Project>

@@ -9,4 +9,9 @@
     <ProjectReference Include="..\ObligatorioDA2.EntityFrameworkCore\ObligatorioDA2.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Abp" Version="6.4.0" />
+    <PackageReference Include="Abp.AutoMapper" Version="6.4.0" />
+  </ItemGroup>
+
 </Project>
