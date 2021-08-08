@@ -22,7 +22,7 @@ namespace ObligatorioDA2.Application.WeatherForecasts
 
         public List<WeatherForecastOutputDto> ReadWeatherForecasts()
         {
-            var forecasts = _weatherForecastRepository.GetAll().ToList();
+            List<WeatherForecast> forecasts = _weatherForecastRepository.GetAll().ToList();
             return ObjectMapper.Map<List<WeatherForecastOutputDto>>(forecasts);
         }
 
