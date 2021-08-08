@@ -37,5 +37,19 @@ namespace ObligatorioDA2.IntegrationTests.WeatherForecasts
                 Assert.Equal(resultForecast.TemperatureF, dbForecast.TemperatureF);
             });
         }
+
+        [Fact]
+        public void Create_should_add_entity_to_db()
+        {
+            var count = 0;
+            UsingDbContext(context => count = context.WeatherForecasts.Count());
+            
+            _weatherForecastAppService.CreateWeatherForecast();
+
+            UsingDbContext(context =>
+            {
+                Assert.Equal(count + 1, context.WeatherForecasts.Count());
+            });
+        }
     }
 }
