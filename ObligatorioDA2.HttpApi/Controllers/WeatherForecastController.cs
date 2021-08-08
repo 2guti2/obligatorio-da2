@@ -11,15 +11,12 @@ namespace ObligatorioDA2.HttpApi.Controllers
     [Route("[controller]")]
     public class WeatherForecastController : AbpController
     {
-        private readonly ILogger<WeatherForecastController> _logger;
         private readonly IWeatherForecastAppService _weatherForecastAppService;
 
         public WeatherForecastController(
-            ILogger<WeatherForecastController> logger,
             IWeatherForecastAppService weatherForecastAppService
         )
         {
-            _logger = logger;
             _weatherForecastAppService = weatherForecastAppService;
         }
 
