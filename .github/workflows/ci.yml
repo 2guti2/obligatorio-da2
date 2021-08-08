@@ -3,7 +3,7 @@ name: .NET Core build, run tests and linter
 on: [push]
 
 jobs:
-  build:
+  run:
 
     runs-on: ubuntu-latest
 
