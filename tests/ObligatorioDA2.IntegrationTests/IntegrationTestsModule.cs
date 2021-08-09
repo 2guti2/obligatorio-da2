@@ -20,9 +20,9 @@ namespace ObligatorioDA2.IntegrationTests
         typeof(EntityFrameworkCoreModule))]
     public class IntegrationTestsModule : AbpModule
     {
-        public IntegrationTestsModule(EntityFrameworkCoreModule abpProjectNameEntityFrameworkModule)
+        public IntegrationTestsModule(EntityFrameworkCoreModule entityFrameworkCoreModule)
         {
-            abpProjectNameEntityFrameworkModule.SkipDbContextRegistration = true;
+            entityFrameworkCoreModule.SkipDbContextRegistration = true;
         }
 
         public override void PreInitialize()
