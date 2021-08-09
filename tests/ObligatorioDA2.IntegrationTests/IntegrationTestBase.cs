@@ -1,7 +1,5 @@
 using System;
-using System.Data.Common;
 using Abp.TestBase;
-using Castle.MicroKernel.Registration;
 using ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore;
 
 namespace ObligatorioDA2.IntegrationTests

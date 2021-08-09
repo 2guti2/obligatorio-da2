@@ -33,11 +33,6 @@ namespace ObligatorioDA2.IntegrationTests
 
         public override void Initialize()
         {
-            RegisterServiceCollections();
-        }
-
-        private void RegisterServiceCollections()
-        {
             IIocManager iocManager = IocManager;
 
             var services = new ServiceCollection();
