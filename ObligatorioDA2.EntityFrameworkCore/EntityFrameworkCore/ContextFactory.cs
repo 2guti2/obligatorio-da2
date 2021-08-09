@@ -1,7 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
-using ObligatorioDA2.Domain;
 using ObligatorioDA2.Domain.Web;
 
 namespace ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore
@@ -11,7 +10,7 @@ namespace ObligatorioDA2.EntityFrameworkCore.EntityFrameworkCore
         public Context CreateDbContext(string[] args)
         {
             var builder = new DbContextOptionsBuilder<Context>();
-            var configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
+            IConfigurationRoot configuration = AppConfigurations.Get(WebContentDirectoryFinder.CalculateContentRootFolder());
 
             ContextConfigurer.Configure(builder, configuration.GetConnectionString("Default"));
 
