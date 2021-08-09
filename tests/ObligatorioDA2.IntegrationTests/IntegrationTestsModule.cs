@@ -6,7 +6,6 @@ using Castle.MicroKernel.Registration;
 using Castle.Windsor.MsDependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using NSubstitute;
 using ObligatorioDA2.Application;
 using ObligatorioDA2.Domain;
 using ObligatorioDA2.EntityFrameworkCore;
@@ -35,16 +34,6 @@ namespace ObligatorioDA2.IntegrationTests
         public override void Initialize()
         {
             RegisterServiceCollections();
-            RegisterFakeService<Context>();
-        }
-
-        private void RegisterFakeService<TService>() where TService : class
-        {
-            IocManager.IocContainer.Register(
-                Component.For<TService>()
-                    .UsingFactoryMethod(() => Substitute.For<TService>())
-                    .LifestyleSingleton()
-            );
         }
 
         private void RegisterServiceCollections()
@@ -55,7 +44,7 @@ namespace ObligatorioDA2.IntegrationTests
 
             services.AddEntityFrameworkInMemoryDatabase();
 
-            var serviceProvider = WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
+            IServiceProvider serviceProvider = WindsorRegistrationHelper.CreateServiceProvider(iocManager.IocContainer, services);
 
             var builder = new DbContextOptionsBuilder<Context>();
             builder.UseInMemoryDatabase(Guid.NewGuid().ToString()).UseInternalServiceProvider(serviceProvider);
