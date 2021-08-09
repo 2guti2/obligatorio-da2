@@ -8,41 +8,18 @@ namespace ObligatorioDA2.IntegrationTests
 {
     public class IntegrationTestBase : AbpIntegratedTestBase<IntegrationTestsModule>
     {
-        protected IntegrationTestBase()
+        protected void UsingDbContext(Action<Context> action)
         {
-            Effort.Provider.EffortProviderConfiguration.RegisterProvider();
+            using var context = LocalIocManager.Resolve<Context>();
+            action(context);
+            context.SaveChanges();
         }
 
-        protected override void PreInitialize()
+        protected T UsingDbContext<T>(Func<Context, T> func)
         {
-            //Fake DbConnection using Effort!
-            LocalIocManager.IocContainer.Register(
-                Component.For<DbConnection>()
-                    .UsingFactoryMethod(Effort.DbConnectionFactory.CreateTransient)
-                    .LifestyleSingleton()
-            );
-
-            base.PreInitialize();
-        }
-
-        public void UsingDbContext(Action<Context> action)
-        {
-            using (var context = LocalIocManager.Resolve<Context>())
-            {
-                action(context);
-                context.SaveChanges();
-            }
-        }
-
-        public T UsingDbContext<T>(Func<Context, T> func)
-        {
-            T result;
-
-            using (var context = LocalIocManager.Resolve<Context>())
-            {
-                result = func(context);
-                context.SaveChanges();
-            }
+            using var context = LocalIocManager.Resolve<Context>();
+            T result = func(context);
+            context.SaveChanges();
 
             return result;
         }

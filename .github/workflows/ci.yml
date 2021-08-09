@@ -25,7 +25,7 @@ jobs:
       - name: Install dotnet format
         run: dotnet tool update --global dotnet-format
       - name: Run dotnet format
-        run: dotnet format --check
+        run: dotnet format --check --verbosity diagnostic
 
       - name: Test
         run: dotnet test --no-restore

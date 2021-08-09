@@ -24,7 +24,7 @@ namespace ObligatorioDA2.HttpApi.Controllers
         {
             return _weatherForecastAppService.ReadWeatherForecasts();
         }
-        
+
         [HttpPost]
         public WeatherForecastOutputDto Post(WeatherForecastInputDto input)
         {
