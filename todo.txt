@@ -1,5 +1,6 @@
 - find a better way to get config
 - include FluentValidation?
+- add custom exceptions
 
 https://aspnetboilerplate.com/Pages/Documents/NLayer-Architecture
 
