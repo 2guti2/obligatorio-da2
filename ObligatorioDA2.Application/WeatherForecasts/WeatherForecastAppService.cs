@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using Abp.Domain.Repositories;
 using ObligatorioDA2.Application.WeatherForecasts.Dtos;
 using ObligatorioDA2.Domain.WeatherForecasts;
@@ -22,7 +21,7 @@ namespace ObligatorioDA2.Application.WeatherForecasts
 
         public List<WeatherForecastOutputDto> ReadWeatherForecasts()
         {
-            List<WeatherForecast> forecasts = _weatherForecastRepository.GetAll().ToList();
+            List<WeatherForecast> forecasts = _weatherForecastRepository.GetAllList();
             return ObjectMapper.Map<List<WeatherForecastOutputDto>>(forecasts);
         }
 
